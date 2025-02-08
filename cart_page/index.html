@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f5;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #010a15;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .items, .cart {
+            width: 45%;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .item, .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            background: #e9f5ff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .item img {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+        button {
+            cursor: pointer;
+            padding: 8px 12px;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .cart h3 {
+            color: #28a745;
+        }
+        h4 {
+            margin-top: 15px;
+            text-align: right;
+            font-size: 18px;
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shopping Cart Page</h1>
+    <div class="container">
+        <div class="items">
+            <h3>Available Items</h3>
+            <div class="item" data-name="Laptop" data-price="999">
+                <img src="https://th.bing.com/th/id/OIP.DLRLitiNsit7bTV1G3tv-gHaGD?w=234&h=191&c=7&r=0&o=5&dpr=1.4&pid=1.7" alt="Laptop">
+                <span>Laptop - $999</span>
+                <button onclick="addToCart(this)">Add</button>
+            </div>
+            <div class="item" data-name="Smartphone" data-price="699">
+                <img src="https://th.bing.com/th/id/OIP.pCWe0XlmUQD9WORY4jsW8AHaGs?w=201&h=182&c=7&r=0&o=5&dpr=1.4&pid=1.7" alt="Smartphone">
+                <span>Smartphone - $699</span>
+                <button onclick="addToCart(this)">Add</button>
+            </div>
+            <div class="item" data-name="Headphones" data-price="199">
+                <img src="https://th.bing.com/th/id/OIP.Ed6KaB02wzXTp90FA-tOhwHaHa?w=1000&h=1000&rs=1&pid=ImgDetMain" alt="Headphones">
+                <span>Headphones - $199</span>
+                <button onclick="addToCart(this)">Add</button>
+            </div>
+        </div>
+        <div class="cart">
+            <h3>Shopping Cart</h3>
+            <div id="cart-items"></div>
+            <h4>Total: $<span id="total">0</span></h4>
+        </div>
+    </div>
+    <script>
+        let cart = [];
+        
+        function addToCart(button) {
+            let item = button.parentElement;
+            let name = item.getAttribute('data-name');
+            let price = parseFloat(item.getAttribute('data-price'));
+            
+            let existing = cart.find(i => i.name === name);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            updateCart();
+        }
+        
+        function updateCart() {
+            let cartContainer = document.getElementById('cart-items');
+            let total = 0;
+            cartContainer.innerHTML = '';
+            
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                cartContainer.innerHTML += `
+                    <div class="cart-item">
+                        <span>${item.name} - $${item.price} x ${item.quantity}</span>
+                        <button onclick="removeFromCart('${item.name}')">Remove</button>
+                    </div>`;
+            });
+            document.getElementById('total').innerText = total;
+        }
+        
+        function removeFromCart(name) {
+            cart = cart.filter(item => item.name !== name);
+            updateCart();
+        }
+    </script>
+</body>
+</html>
