@@ -1,0 +1,37 @@
+Problem Statement (For Practice):
+Design and develop a travel blog website with 2-3 webpages using HTML, CSS Selectors, and CSS Flexbox. The website should be fully responsive and include the following features:
+
+1. Home Page: A visually appealing landing page with a navigation menu, a hero section featuring a travel image, and a brief introduction to the blog.
+2. Blog Page: A page listing various travel blog posts with images, summaries, and links to full articles.
+3. About Page: A page providing information about the blog and its authors.
+
+
+Detailed Guide:
+
+1. Home Page
+Header Section:
+  - Include a navigation menu with links to the Home, Blog, and About pages.
+  - Use CSS Flexbox to align menu items horizontally.
+Hero Section:
+  - Display a captivating travel image.
+  - Add a brief introduction to the blog using HTML paragraphs and headings.
+Footer Section:
+  - Include copyright information and social media links.
+  - Use CSS Flexbox to align footer content.
+
+2. Blog Page
+Blog Post List:
+  - Create a list of blog posts using HTML unordered lists (<ul>).
+  - Each list item should include an image, a summary, and a link to the full article.
+  - Use CSS Flexbox to arrange blog posts in a grid layout.
+Pagination:
+  - Add pagination links at the bottom of the page.
+  - Use CSS selectors to style pagination buttons.
+
+3. About Page
+Introduction:
+  - Write a brief introduction to the blog and its authors using HTML paragraphs and headings.
+  - Use CSS to style the text and layout.
+Author Profiles:
+  - Create a section for author profiles using HTML and CSS.
+  - Use CSS Flexbox to align profiles horizontally or vertically.
