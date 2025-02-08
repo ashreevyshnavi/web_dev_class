@@ -1,0 +1,4 @@
+Create a restaurant app where you will have 3 pages, home, menu and contact
+1. Home page: have a welcome text with some image if a restaurant
+2. Menu page: list of the menu items with their prices and pics
+3. Contact page: Create a contact form that takes name, email id and a message as a input. Have a submit and clear buttons . After clicking submit , there should be a alert displaying "form submitted successfully". Clear button should clear all the fields.
