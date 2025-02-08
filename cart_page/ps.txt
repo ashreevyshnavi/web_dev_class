@@ -1,0 +1,2 @@
+in a single page , show the list of some available items with image and price. the user should be able to add the items to the cart. 
+In the cart, it should display the total amount that the user should pay.
